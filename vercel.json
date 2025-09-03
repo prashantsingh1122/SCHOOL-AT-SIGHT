@@ -3,16 +3,7 @@
   "builds": [
     {
       "src": "myschool/package.json",
-      "use": "@vercel/next",
-      "config": {
-        "distDir": ".next"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "myschool/$1"
+      "use": "@vercel/next"
     }
   ]
 }

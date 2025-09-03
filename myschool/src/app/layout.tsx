@@ -19,8 +19,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Link>
             <div className="flex-1 flex items-center justify-center">
               <div className="flex items-center gap-3 text-sm">
-                <a className="px-4 py-2 rounded-md border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:-translate-y-0.5 hover:shadow-sm transition duration-200" href="/showSchools">Show Schools</a>
-                <a className="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 hover:-translate-y-0.5 shadow-sm hover:shadow transition duration-200" href="/addSchool">Add School</a>
+                <Link className="px-4 py-2 rounded-md border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:-translate-y-0.5 hover:shadow-sm transition duration-200" href="/showSchools">Show Schools</Link>
+                <Link className="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 hover:-translate-y-0.5 shadow-sm hover:shadow transition duration-200" href="/addSchool">Add School</Link>
               </div>
             </div>
             <div className="w-8" aria-hidden></div>
