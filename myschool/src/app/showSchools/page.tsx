@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import Image from 'next/image';
 
 type School = {
 	id: number;
@@ -30,7 +31,7 @@ export default function ShowSchoolsPage() {
 					if (json.success) setSchools(json.data as School[]);
 					else setError(json.error || 'Failed to load');
 				}
-			} catch (e) {
+			} catch {
 				if (!cancelled) setError('Network error');
 			} finally {
 				if (!cancelled) setLoading(false);
@@ -76,7 +77,7 @@ export default function ShowSchoolsPage() {
 				{filtered.map((s) => (
 					<li key={s.id} className="group overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm transition duration-300 ease-out hover:shadow-lg hover:-translate-y-0.5 hover:border-neutral-300 dark:hover:border-neutral-700">
 						<div className="relative aspect-[16/10] overflow-hidden">
-							<img className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" src={s.image} alt={s.name} />
+							<Image className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" src={s.image} alt={s.name} width={400} height={250} />
 						</div>
 						<div className="p-4">
 							<h3 className="text-base font-semibold mb-1 truncate">{s.name}</h3>

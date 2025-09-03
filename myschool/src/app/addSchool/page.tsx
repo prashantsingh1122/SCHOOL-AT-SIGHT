@@ -5,13 +5,23 @@ import { useForm } from 'react-hook-form';
 
 type ServerMsg = { type: 'success' | 'error'; text: string } | null;
 
+type FormData = {
+	name: string;
+	address: string;
+	city: string;
+	state: string;
+	contact: string;
+	email_id: string;
+	image: FileList;
+};
+
 export default function AddSchoolPage() {
 	const [submitting, setSubmitting] = useState(false);
 	const [serverMsg, setServerMsg] = useState<ServerMsg>(null);
 
-	const { register, handleSubmit, reset, formState: { errors } } = useForm();
+	const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>();
 
-	async function onSubmit(data: any) {
+	async function onSubmit(data: FormData) {
 		setServerMsg(null);
 		setSubmitting(true);
 		try {
@@ -32,7 +42,7 @@ export default function AddSchoolPage() {
 			} else {
 				setServerMsg({ type: 'error', text: json.error || 'Error' });
 			}
-		} catch (e) {
+		} catch {
 			setServerMsg({ type: 'error', text: 'Network error' });
 		} finally {
 			setSubmitting(false);
@@ -77,7 +87,7 @@ export default function AddSchoolPage() {
 					<div className="flex flex-col gap-1.5">
 						<label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">School Image</label>
 						<input className="h-10 px-3 file:h-10 file:px-3 file:mr-3 file:rounded-md file:border-0 file:bg-neutral-100 dark:file:bg-neutral-800 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-950 outline-none focus:ring-2 focus:ring-indigo-500" type="file" accept="image/*" {...register('image', { required: 'Image is required' })} />
-						{(errors as any).image && <p className="text-sm text-red-600">{String((errors as any).image?.message)}</p>}
+						{errors.image && <p className="text-sm text-red-600">{String(errors.image.message)}</p>}
 					</div>
 				</div>
 				<div className="mt-6 flex items-center gap-3">
