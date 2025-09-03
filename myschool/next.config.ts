@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Ensure proper build output for Vercel
+  trailingSlash: false,
+  images: {
+    unoptimized: false,
+  },
 };
 
 export default nextConfig;
