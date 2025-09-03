@@ -1,6 +1,18 @@
 {
-  "buildCommand": "cd myschool && npm run build",
-  "outputDirectory": "myschool/.next",
-  "installCommand": "cd myschool && npm install",
-  "framework": "nextjs"
+  "version": 2,
+  "builds": [
+    {
+      "src": "myschool/package.json",
+      "use": "@vercel/next",
+      "config": {
+        "distDir": ".next"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "myschool/$1"
+    }
+  ]
 }
