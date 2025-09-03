@@ -1,0 +1,6 @@
+myschool/node_modules
+myschool/.next
+myschool/.env.local
+myschool/.env.development.local
+myschool/.env.test.local
+myschool/.env.production.local

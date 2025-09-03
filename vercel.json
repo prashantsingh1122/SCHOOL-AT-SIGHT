@@ -1,3 +1,6 @@
 {
-  "rootDirectory": "myschool"
+  "buildCommand": "cd myschool && npm run build",
+  "outputDirectory": "myschool/.next",
+  "installCommand": "cd myschool && npm install",
+  "framework": "nextjs"
 }
